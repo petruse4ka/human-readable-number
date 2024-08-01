@@ -67,7 +67,7 @@ module.exports = function toReadable (number) {
         }
     }
 
-    function hundredsDigitWord(n) {
+    function hundredsDigitToWord(n) {
         if (n < 100) {
             return doubleDigitToWord(n);
         } else if (n >= 100 && n < 1000) {
@@ -79,9 +79,9 @@ module.exports = function toReadable (number) {
 
     function thousandsDigitToWord(n) {
         if (n < 1000) {
-            return hundredsDigitWord(n);
+            return hundredsDigitToWord(n);
         } else if (n >= 1000 & n < 1000000) {
-            return n % 1000 === 0 ? hundredsDigitWord(Math.floor(n / 1000)) + ' thousand' : hundredsDigitWord(Math.floor(n / 1000)) + ' thousand' + ' ' + hundredsDigitWord(n % 1000);
+            return n % 1000 === 0 ? hundredsDigitToWord(Math.floor(n / 1000)) + ' thousand' : hundredsDigitToWord(Math.floor(n / 1000)) + ' thousand' + ' ' + hundredsDigitToWord(n % 1000);
         } else {
             return 'number too big'
         }
